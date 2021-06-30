@@ -43,4 +43,7 @@ RUN CONAN_LOGGING_LEVEL=debug conan install . --build=missing -s build_type=Rele
 RUN cmake . -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8
 RUN cmake --build . --parallel
 
-CMD ./ocl-test
+CMD export OMP_NUM_THREADS=1 && \
+    export MKL_NUM_THREADS=1 && \
+    export OPENCV_OPENCL_DEVICE=:CPU: && \
+    ./ocl-test
