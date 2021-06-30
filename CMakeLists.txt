@@ -47,6 +47,7 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(
         ${PROJECT_NAME} PRIVATE
         ${CONAN_LIBS}
+        ${OpenCL_LIBRARIES}
 )
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_OPENCL=1)
