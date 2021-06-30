@@ -1,0 +1,9 @@
+[requires]
+opencv_mkl/4.5.1@local/stable
+
+[options]
+#opencv:contrib=True
+opencv_mkl:contrib=False
+
+[generators]
+cmake

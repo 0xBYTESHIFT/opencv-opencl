@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+
+  conan_builder:
+    container_name: conan_builder
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    volumes:
+      - ./recipes/:/data/recipes
+      - ./build_conan_package.sh:/data/build_conan_package.sh
+
+    command: bash -c "./build_conan_package.sh"
