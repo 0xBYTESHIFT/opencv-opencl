@@ -1,10 +1,18 @@
-# conan-index
+# Instrucions
 
-В docker-compose файле прописать путь до папки `conan-index/recipes`<br>
-Отредактировать `build_conan_package.sh` под нужные рецепты.
+build: 
 
-Следом выполнить: 
 ```bash
-docker-compose build
-docker-compose up
+docker build . -t ocl_ocv
 ```
+
+run:
+
+```bash
+docker run ocl_ocv
+```
+
+desired output: "YOU HAVE OPENCL"
+actual output: "NO OPENCL"
+
+reason is unknown. opencv links with opencl just fine during conan create/export stage. but then application itself can't use opencl somehow.
